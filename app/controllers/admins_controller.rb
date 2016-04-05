@@ -4,20 +4,20 @@ class AdminsController < ApplicationController
 
 #returns JSON of all admins
 def index
-render json: Admin.all
+	render json: Admin.all
 end
 
 #creates admin
 def create
 
 	if admin_exists
-		render text: "admin already exists"
+		render text: "Cannot create duplicate Admin"
 	else
 	@admin = Admin.new(user_params)
 	if @admin.save 
 		render json: @admin
 	end
-		render text: "It cannot be saved"
+		render text: "Admin cannot be saved"
 	end
 end
 
@@ -37,7 +37,7 @@ end
 
 
 def user_params
-      params.require(:admin).permit(:username, :email, :password,
+	params.require(:admin).permit(:username, :email, :password,
                                    )
 end
 

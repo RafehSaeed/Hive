@@ -1,19 +1,41 @@
 class ResumesController < ApplicationController
 
-	def create
-		
-@zakis =  Buisness.create(  username: 'Zakis' , 
-			   			email:'rafehsaeed@yahoo.com', 
-			   			password: 'dadidadi',
-			   			buisnessname: "zakis",
-			   			address: '200 donald st'
+def index
 
+	render json: Resume.all
 
-			 	)
-
-@review1 = Review.create(rating: '2.0', comment:"hehehehe" , date:Date.today.to_s , service_provider_id: '4', buisness_id: "2")
-
-render json: @review1
 end
+
+def show
+
+	 @resume = Resume.find(params[:id])
+	 render json: @resume
+
+end
+
+
+
+
+
+def create
+{
+	@resume= Buisness.find(params[:service_proivder_id]).resumes.build(resume_params)
+	if @resume.save 
+		render json: @resume
+	end
+}
+			 	
+end
+
+
+
+
+private 
+
+def resume_params
+	params.require(:resume).permit(:name, :age, :phonenumber, :service_proivder_id, :experience
+                                   )
+end
+
 
 end
