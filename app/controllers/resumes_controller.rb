@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
 
+	  before_action :service_provider_exists
+
 def index
 
 	render json: Resume.all
@@ -12,7 +14,7 @@ def show
 	 render json: @resume
 
 end
-
+h
 
 
 
@@ -31,6 +33,15 @@ end
 
 
 private 
+
+
+def service_provider_exists
+
+	@serviceprovider = params[:resume][:service_proivder_id]
+	ServiceProvider.exists?(:id => @service_proivder_id)
+
+
+end
 
 def resume_params
 	params.require(:resume).permit(:name, :age, :phonenumber, :service_proivder_id, :experience
