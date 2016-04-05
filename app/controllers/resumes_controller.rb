@@ -1,6 +1,5 @@
 class ResumesController < ApplicationController
 
-	  before_action :service_provider_exists
 
 def index
 
@@ -14,18 +13,18 @@ def show
 	 render json: @resume
 
 end
-h
+
 
 
 
 
 def create
-{
+
 	@resume= Buisness.find(params[:service_proivder_id]).resumes.build(resume_params)
 	if @resume.save 
 		render json: @resume
 	end
-}
+
 			 	
 end
 
