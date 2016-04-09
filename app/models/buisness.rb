@@ -1,7 +1,7 @@
 class Buisness < ActiveRecord::Base
 
 	  has_many :reviews, dependent: :destroy
-	   before_save { email.downcase! }
+  before_save { email.downcase! }
  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
  

@@ -59,5 +59,9 @@ Rails.application.routes.draw do
   resources :buisnesses
     resources :resumes
     resources :reviews
+    
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
 end
 
