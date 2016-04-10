@@ -13,6 +13,7 @@ gem 'responders', '~> 2.1.0'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'thin'
+gem 'sinatra'
 gem 'bcrypt'
 gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
@@ -26,6 +27,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

@@ -7,7 +7,7 @@ class BuisnessesController < ApplicationController
   def index
     @buisnesses = Buisness.all
 
-    render json: @buisnesses
+     render json: @buisnesses 
   end
 
   # GET /buisnesses/1

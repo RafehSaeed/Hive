@@ -2,6 +2,9 @@
 # Creating Login for the Users
 
 class SessionsController < ApplicationController
+
+
+
   def new
 
   end
@@ -17,7 +20,7 @@ class SessionsController < ApplicationController
    		
    	else
    		
-   		render json: "Doesnt Exist"
+   		render json: {"content":"Doesnt Exist"}
   end
 end
 

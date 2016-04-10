@@ -22,8 +22,10 @@ def create
 end
 
 def show 
+
 	 @admin = Admin.find(params[:id])
 	 render json: @admin
+
 end
 
 

@@ -54,12 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+
   resources :admins
   resources :serviceproviders
   resources :buisnesses
     resources :resumes
-    resources :reviews
-    
+    resources :reviews    
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 

@@ -10,7 +10,8 @@ end
 def show
 
 	 @resume = Resume.find(params[:id])
-	 render json: @resume
+	# render json: @resume
+	   render json: resume.as_json(include:[@resume])
 
 end
 
