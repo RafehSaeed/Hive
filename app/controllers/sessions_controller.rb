@@ -1,5 +1,5 @@
 
-	# Creating Login for the Users
+	# Controller Helping Users Login and out of Hive
 
 	class SessionsController < ApplicationController
 
@@ -23,15 +23,13 @@
 	   		log_in(user)
 	   		remember(user)
 	   		current_user
-	   		
-	   		print logged_in?;
 	   		render json: current_user
 
 
 
 	   		
 	   	elsif user == nil
-	   			render json: {"content":"Doesnt Exist"}
+	   			render json: {"content":"Invalid User"}
 	   	else
 	   		render json: {"content":"User already logged in"}
 	   			
