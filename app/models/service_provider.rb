@@ -1,6 +1,7 @@
 class ServiceProvider < ActiveRecord::Base
 
 	has_one :resume
+  has_many :services
 
 	  before_save { email.downcase! }
   validates :username, presence: true, length: { maximum: 50 }

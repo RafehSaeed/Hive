@@ -18,7 +18,7 @@
 	  	 user = Admin.find_by(email: params[:session][:email]) unless (params[:session] == nil || user!=nil)
 	  	 user = ServiceProvider.find_by(email: params[:session][:email]) unless (params[:session] == nil || user!=nil)
 	  	 
-	   	if user && !logged_in?
+	   	if user && !logged_in? && (user.password == params[:session][:password])
 	   		#log the user in
 	   		log_in(user)
 	   		remember(user)
@@ -30,8 +30,8 @@
 	   		
 	   	elsif user == nil
 	   			render json: {"content":"Invalid User"}
-	   	else
-	   		render json: {"content":"User already logged in"}
+	   	elsif !logged_in?
+	   		render json: {"content":"Invalid User"}
 	   			
 	  end
 	end
