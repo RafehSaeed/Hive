@@ -3,7 +3,6 @@ class CreateServices < ActiveRecord::Migration
     create_table :services do |t|
       t.string :type
       t.string :description
-      t.string :type
       t.references :service_provider, index: true, foreign_key: true
       t.references :category, index: true, foreign_key: true
 

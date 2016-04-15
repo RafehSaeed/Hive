@@ -5,6 +5,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name
       t.decimal :minimumwage
       t.timestamps null: false
+      t.references :service, index: true, foreign_key: true
     end
   end
 end
