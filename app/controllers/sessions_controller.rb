@@ -3,8 +3,7 @@
 
 	class SessionsController < ApplicationController
 
-
-
+    
 	  def new
 
 
@@ -18,9 +17,15 @@
 	  	 user = Admin.find_by(email: params[:session][:email]) unless (params[:session] == nil || user!=nil)
 	  	 user = ServiceProvider.find_by(email: params[:session][:email]) unless (params[:session] == nil || user!=nil)
 	  	 
+	  	 @@userType = user.class.name.demodulize; #Initializing UserType
+	  	 
+
 	   	if user && !logged_in? && (user.password == params[:session][:password])
 	   		#log the user in
 	   		log_in(user)
+	   		@@userType = user.class.name.demodulize; # Setting userType
+	   		
+	   	#	user_type(user)
 	   		remember(user)
 	   		current_user
 	   		render json: current_user
@@ -53,9 +58,12 @@
 
 		end
 
+
+
+
 	  #Returns the current user in the session
 	  def current_user
-	     @current_user ||= Buisness.find_by(id: session[:user_id])
+	      @current_user ||= Object.const_get(@@userType).find_by(id: session[:user_id])
 
 	    
 	 	 end
