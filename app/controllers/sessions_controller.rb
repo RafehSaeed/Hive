@@ -4,9 +4,22 @@
 	class SessionsController < ApplicationController
 
     
-	  def new
+	  def register
+       
+       #Checks whether the user in the session object is Buisness or ServiceProvider and see if the email already exists 
+	   user = Object.const_get(params[:session][:usertype]).find_by(email: params[:session][:email]) unless (params[:session] == nil )
+
+	  	 if user!= nil
+	  	 	render json: {"content":"User already exists"}
+	  	 
+
+	  	 else 
+
+	  	 	render json: {"content":"User can be Registered"}
 
 
+
+	  	end
 	  end
 
 	  #Creates a session for the user being logged in

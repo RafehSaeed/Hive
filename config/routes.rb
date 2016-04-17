@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     resources :resumes
     resources :reviews    
   post   'login'   => 'sessions#create'
+  post   'register'   => 'sessions#register'
   delete 'logout'  => 'sessions#destroy'
 
 end
