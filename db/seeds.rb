@@ -42,3 +42,17 @@ Review.create(
 
 				)
 
+
+category_array=['Computers','Moving','Cleaning',
+	'Tutoring','Plumbing','Cooking','Driving','Sales']
+
+category_array.each do |category|
+Category.create(  
+				name: category , 
+			    minimumwage: 11.25
+	
+
+
+				)
+
+end
