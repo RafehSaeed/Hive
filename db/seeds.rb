@@ -5,11 +5,40 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Admin.create(  username: 'Rafeh' , 
+Admin.create(  username: 'rafeh' , 
 			   email:'rafeh_saeed@hotmail.ca', 
 			   firstname:"rafeh",
 			   lastname:"saeed",
 
 
-				password:'dadidadi', type:"Admin" )
+				password:'dadidadi')
+
+Buisness.create(  username: 'ahmed' , 
+			   email:'ahmedgreat1@msn.com', 
+			   buisnessname: "Zakis",
+			   address: "200 Donald St",
+
+
+				password:'dadidadi')
+
+ServiceProvider.create(  username: 'zaid' , 
+			   email:'zaid@yahoo.ca', 
+			   firstname:"zaid",
+			   lastname:"qureshi",
+
+
+				password:'dadidadi',
+				verified: true,
+				address: '200 Mcarthur',
+				postalcode: 'K1K1M8')
+
+Review.create(  
+				rating: '4.0' , 
+			    comment:'Good job done', 
+			    date:"2016-4-4",
+			    buisness_id:"1",
+			    service_provider_id: '1'
+
+
+				)
 

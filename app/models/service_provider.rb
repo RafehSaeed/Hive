@@ -1,5 +1,6 @@
 class ServiceProvider < ActiveRecord::Base
-
+  
+  #has_secure_password
 	has_one :resume
   has_many :services
 
