@@ -42,6 +42,17 @@ Review.create(
 
 				)
 
+Resume.create(  
+				name: 'Rafeh Chaudhry' , 
+			    age: 23, 
+			    phonenumber:"613-333-3333",
+			    service_provider_id: '1',
+			    experience: 'Excellent Web Developer'
+
+
+				)
+
+
 
 category_array=['Computers','Moving','Cleaning',
 	'Tutoring','Plumbing','Cooking','Driving','Sales']
@@ -55,4 +66,17 @@ Category.create(
 
 				)
 
-end
+				end
+
+
+Service.create(  
+			
+			    description: "Leak Fixture", 
+			    category_id:"5",
+			    service_provider_id: '1'
+			   
+
+
+				)
+
+

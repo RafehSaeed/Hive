@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20160415214451) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.string   "type"
     t.string   "description"
     t.integer  "service_provider_id"
     t.integer  "category_id"

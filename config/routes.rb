@@ -59,8 +59,9 @@ Rails.application.routes.draw do
   resources :admins
   resources :serviceproviders
   resources :buisnesses
-    resources :resumes
-    resources :reviews    
+  resources :resumes
+  resources :reviews   
+  resources :services
   post   'login'   => 'sessions#create'
   post   'register'   => 'sessions#register'
   delete 'logout'  => 'sessions#destroy'
