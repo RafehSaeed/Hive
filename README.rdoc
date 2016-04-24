@@ -2,5 +2,19 @@
 
 Project Hive
 
-Work in Progress
+#Setup and Configuration
 
+    After setting up ruby on rails install postgresql
+    Create postgres user by running the command su -postgres
+    Then enter psql
+    Now create username and password for Hive with create user postgres with password 'postgres';
+    Enter create database "hive_development" owner "postgres";
+    Enter create database "hive_test" owner "postgres";
+    Enter the repository folder and run command rake db:create followed by rake db:migrate and then rake db:seed
+    Enter rails s to run server
+
+#Use PostgreSQL software to easily navigate the database
+
+#Use Rest Easy plugin in firefox to send REST commands or use curl
+
+#Use Rake Routes to check all the routes configured for the app.
