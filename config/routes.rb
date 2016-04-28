@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   resources :reviews   
   resources :services
   post   'login'   => 'sessions#create'
+  post   'registercheck'   => 'sessions#registercheck'
   post   'register'   => 'sessions#register'
   delete 'logout'  => 'sessions#destroy'
 

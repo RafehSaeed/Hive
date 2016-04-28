@@ -3,8 +3,8 @@
 
 	class SessionsController < ApplicationController
 
-    
-	  def register
+      #Checks to see on the first page of the angular app whether a user can be registered or not
+	  def registercheck 
        
        #Checks whether the user in the session object is Buisness or ServiceProvider and see if the email already exists 
 	   user = Object.const_get(params[:session][:usertype]).find_by(email: params[:session][:email]) unless (params[:session] == nil )
@@ -15,11 +15,38 @@
 
 	  	 else 
 
+	  	 	#if user can be registered create a user depending on usertype and params passed
 	  	 	render json: {"content":"User can be Registered"}
 
 
 
 	  	end
+	  end
+
+	  #registers User
+	  def register
+
+	  	usertype = Object.const_get(params[:session][:usertype]);
+	  	if params[:session][:usertype] == "Buisness"
+	  
+	   		permitted = params.permit( :username , :email , :password ,:buisnessname, :address)
+	   		usertype.create(permitted)
+	   	
+	 	end
+	 	if params[:session][:usertype] == "ServiceProvider"
+	  
+	   		permitted = params.permit( :username, :email, :password, :firstname , :lastname , :verified , :postalcode  )
+	   		usertype.create(permitted)
+	   	
+	 	end
+
+	    render json: {"content":"User cannot be Registered"}
+	 
+
+
+
+
+
 	  end
 
 	  #Creates a session for the user being logged in
