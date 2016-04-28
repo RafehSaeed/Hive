@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   post   'registercheck'   => 'sessions#registercheck'
   post   'register'   => 'sessions#register'
+  post   'addservice'   => 'serviceproviders#addservice'
   delete 'logout'  => 'sessions#destroy'
 
 end

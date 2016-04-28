@@ -24,6 +24,18 @@ def show
 	 render json: @serviceprovider
 end
 
+#Creates a service by a service Providers
+def addservice
+
+ @service = ServiceProvider.find_by(username: params[:serviceprovider][:username]);
+ permitted = params[:serviceprovider].permit( :description, :category_id);
+ @service.services.create(permitted);
+
+ render json: @service
+
+
+end
+
 
 private
 
